@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI/CD
 
 # Controls when the workflow will run
 on:
@@ -27,4 +27,5 @@ jobs:
 
       # Run our deployment command
       - name: Building minified TailwindCSS file
+        run: npm install
         run: npm run build
