@@ -5,12 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="dist/styles.css" rel="stylesheet" />
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <link rel="icon" href="src/images/sprintdevs_logo.png" type="image/x-icon" />
         <title>Sprint Devs</title>
     </head>
 
     <body>
-        <div class="relative overflow-hidden">
+        <div x-data="{ show: false }" class="relative overflow-hidden">
             <header class="relative">
                 <div class="bg-gray-900 pt-6">
                     <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6" aria-label="Global">
@@ -21,7 +22,7 @@
                                     <img class="h-8 w-auto sm:h-10" src="./src/images/sprintdevs_logo.png" alt="" />
                                 </a>
                                 <div class="-mr-2 flex items-center md:hidden">
-                                    <button type="button" class="focus-ring-inset inline-flex items-center justify-center rounded-md bg-gray-900 p-2 text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-white" aria-expanded="false">
+                                    <button @click="show = true" type="button" class="focus-ring-inset inline-flex items-center justify-center rounded-md bg-gray-900 p-2 text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-white" aria-expanded="false">
                                         <span class="sr-only">Open main menu</span>
                                         <!-- Heroicon name: outline/bars-3 -->
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -85,14 +86,14 @@
                         From: "opacity-100 scale-100"
                         To: "opacity-0 scale-95"
                     -->
-                <div class="relative inset-x-0 top-0 z-10 origin-top transform p-2 transition md:hidden">
+                <div x-show="show" class="relative inset-x-0 top-0 z-10 origin-top transform p-2 transition md:hidden">
                     <div class="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
                         <div class="flex items-center justify-between px-5 pt-4">
                             <div>
                                 <img class="h-8 w-auto" src="/src/images/sprintdevs_logo.png" alt="" />
                             </div>
                             <div class="-mr-2">
-                                <button type="button" class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
+                                <button @click="show = false" type="button" class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
                                     <span class="sr-only">Close menu</span>
                                     <!-- Heroicon name: outline/x-mark -->
                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -272,12 +273,12 @@
                     </div>
                 </div>
                 <!-- why choose us?... -->
-                <div class="overflow-hidden bg-gray-50 py-16 lg:py-24">
+                <div class="overflow-hidden bg-gray-200 py-16 lg:py-24">
                     <div class="relative mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                         <svg class="absolute left-full hidden -translate-x-1/2 -translate-y-1/4 transform lg:block" width="404" height="784" fill="none" viewBox="0 0 404 784" aria-hidden="true">
                             <defs>
                                 <pattern id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                                    <rect x="0" y="0" width="4" height="4" class="text-spd-blue" fill="currentColor" />
                                 </pattern>
                             </defs>
                             <rect width="404" height="784" fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)" />
@@ -362,7 +363,7 @@
                         <svg class="absolute right-full hidden translate-x-1/2 translate-y-12 transform lg:block" width="404" height="784" fill="none" viewBox="0 0 404 784" aria-hidden="true">
                             <defs>
                                 <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                                    <rect x="0" y="0" width="4" height="4" class="text-spd-blue" fill="currentColor" />
                                 </pattern>
                             </defs>
                             <rect width="404" height="784" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
@@ -434,6 +435,17 @@
                     </div>
                 </div>
             </main>
+            <!-- footer -->
+            <footer class="p-4 bg-spd-blue shadow md:px-6 md:py-8">
+                <div class="flex justify-center sm:flex sm:items-center">
+                    <a href="#top" class="flex items-center mb-4 sm:mb-0">
+                        <img src="/src/images/sprintdevs_logo.png" class="mr-1 h-8" alt="Sprint Devs Logo" />
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-spd-red">Sprint Devs</span>
+                    </a>
+                </div>
+                <hr class="my-6 border-gray-700 sm:mx-auto lg:my-8" />
+                <span class="flex justify-center sm:flex sm:items-center text-gray-300 text-sm">©2022 <a href="#top" class="hover:underline ml-1">Sprint Devs</a>. All Rights Reserved. </span>
+            </footer>
         </div>
     </body>
 </html>
