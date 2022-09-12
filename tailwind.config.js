@@ -2,6 +2,12 @@
 module.exports = {
     content: ['./index.html'],
     theme: {
+        extend: {
+            colors: {
+                'spd-red': '#df1a22',
+                'spd-blue': '#111827'
+            }
+        },
         screens: {
             sm: '640px',
             md: '768px',
