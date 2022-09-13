@@ -5,7 +5,8 @@ module.exports = {
         extend: {
             colors: {
                 'spd-red': '#DF1A22',
-                'spd-blue': '#111827'
+                'spd-blue': '#111827',
+                'spd-lb': '#3F3D56'
             }
         },
         screens: {
