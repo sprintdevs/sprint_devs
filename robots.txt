@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /package-lock.json
+Disallow: /package.json
+Disallow: /README.md
+Disallow: /yarn.lock
+Disallow: /tailwind.config.js
+Disallow: /dist/styles.css
