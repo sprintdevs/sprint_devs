@@ -6,7 +6,8 @@ module.exports = {
             colors: {
                 'spd-red': '#DF1A22',
                 'spd-blue': '#111827',
-                'spd-lb': '#3F3D56'
+                'spd-lb': '#3F3D56',
+                'spd-gray': '#E9E9EA'
             }
         },
         screens: {
