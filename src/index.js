@@ -103,7 +103,7 @@ contactForm.addEventListener('submit', async (event) => {
 async function submitContactInfo(formData) {
     const jsonFormData = Object.fromEntries(formData.entries());
 
-    const response = await fetch('https://spd-contact.onrender.com:5900/contact', {
+    const response = await fetch('https://spd-contact.onrender.com/contact', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
