@@ -88,3 +88,38 @@ buttons.forEach(button => {
         delete previousActiveSlide.dataset.active
     })
 })
+
+let contactForm = document.getElementById('contact-form')
+
+contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+
+    await submitContactInfo(formData)
+
+})
+
+async function submitContactInfo(formData) {
+    const jsonFormData = Object.fromEntries(formData.entries());
+
+    const response = await fetch('https://spd-contact.onrender.com:5900/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+        body: JSON.stringify(jsonFormData)
+    })
+    
+    if (!response.ok) {
+		const errorMessage = await response.text();
+		throw new Error(errorMessage);
+	}
+
+    if (response.ok) {
+        alert('Thank you for your query.\nWe will get in touch with you shortly.')
+    }
+
+	return response.json();
+}
