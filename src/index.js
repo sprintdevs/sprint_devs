@@ -91,35 +91,36 @@ buttons.forEach(button => {
 
 let contactForm = document.getElementById('contact-form')
 
-contactForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
+contactForm.addEventListener('submit', async event => {
+    event.preventDefault()
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(event.currentTarget)
 
     await submitContactInfo(formData)
-
 })
 
 async function submitContactInfo(formData) {
-    const jsonFormData = Object.fromEntries(formData.entries());
+    const jsonFormData = Object.fromEntries(formData.entries())
 
     const response = await fetch('https://spd-contact.onrender.com/contact', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
+            Accept: 'application/json'
+        },
         body: JSON.stringify(jsonFormData)
     })
-    
+
     if (!response.ok) {
-		const errorMessage = await response.text();
-		throw new Error(errorMessage);
-	}
+        const errorMessage = await response.text()
+        throw new Error(errorMessage)
+    }
 
     if (response.ok) {
         alert('Thank you for your query.\nWe will get in touch with you shortly.')
     }
 
-	return response.json();
+    return response.json()
 }
+
+document.getElementById('spd-copyright').innerHTML = `©2022-${new Date().getFullYear()} <a href="#top" class="hover:underline ml-1 text-spd-red">Sprint Devs</a>. All Rights Reserved.`
